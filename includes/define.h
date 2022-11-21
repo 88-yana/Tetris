@@ -3,7 +3,6 @@
 
 # include	<stdbool.h>
 # include	<time.h>
-# include	<sys/time.h>
 
 # define HEIGHT 20
 # define WIDTH 15
@@ -19,12 +18,13 @@ typedef struct s_tetromino {
 }	t_tetromino;
 
 typedef struct s_vars {
-	int			board[HEIGHT][WIDTH];
-	int			decrease_time;
-	int			score;
-	bool		game_on;
-	suseconds_t	timer;
-	t_tetromino	current;
+	int				board[HEIGHT][WIDTH];
+	int				score;
+	int				reduce_time;
+	int				fall_time;
+	bool			game_on;
+	struct timespec	start_time;
+	t_tetromino		current_cell;
 }	t_vars;
 
 const t_tetromino pieces[] = {
