@@ -6,5 +6,6 @@
 # include	<ncurses.h>
 # include	"define.h"
 # include	"cell.h"
+# include	"board.h"
 # include	"debug.h"
 #endif

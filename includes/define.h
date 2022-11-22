@@ -8,7 +8,7 @@
 # define WIDTH 15
 # define RIGHT 1
 # define LEFT -1
-
+# define TYPES sizeof(pieces) / sizeof(t_tetromino)
 typedef struct s_tetromino {
 	int	**shape;
 	int	width;
@@ -16,7 +16,15 @@ typedef struct s_tetromino {
 	int	row;
 }	t_tetromino;
 
-# define TYPES sizeof(pieces) / sizeof(t_tetromino)
+typedef struct s_vars {
+	int				board[HEIGHT][WIDTH];
+	int				score;
+	int				reduce_time;
+	int				fall_time;
+	bool			game_on;
+	t_tetromino		current_cell;
+	struct timespec	start_time;
+}	t_vars;
 
 static const	t_tetromino pieces[] = {
 	// . # #
@@ -69,14 +77,5 @@ static const	t_tetromino pieces[] = {
 				(int[]){0, 0, 0, 0}},
 	4}
 };
-typedef struct s_vars {
-	int				board[HEIGHT][WIDTH];
-	int				score;
-	int				reduce_time;
-	int				fall_time;
-	bool			game_on;
-	t_tetromino		current_cell;
-	struct timespec	start_time;
-}	t_vars;
 
 #endif

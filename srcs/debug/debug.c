@@ -17,3 +17,13 @@ void	print_cell(t_vars *vars)
 	printf("%d\n", vars->current_cell.col);
 	printf("%d\n", vars->current_cell.row);
 }
+
+void	printf_afew(t_vars *vars)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		init_vars(vars);
+		print_current_board(vars);
+		sleep(2);
+	}
+}
