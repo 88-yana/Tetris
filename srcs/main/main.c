@@ -1,7 +1,5 @@
 #include "../../includes/tetris.h"
 
-#include <conio.h>
-
 static void	init_vars(t_vars *vars)
 {
 	for (int i = 0; i < HEIGHT; i++)
@@ -16,33 +14,35 @@ static void	init_vars(t_vars *vars)
 }
 
 static void	setup_tetris(void) {
-	// tinit();
-	// initscr(); //curses を利用する場合，最初に呼び出さなければならない
-	// noecho(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
-	// cbreak(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
-	// keypad(stdscr, true); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
-	// timeout(1); //入力を何ミリ秒待つか指定，負の値の場合，無限に待つ defined by curses.h
+	initscr(); //curses を利用する場合，最初に呼び出さなければならない
+	noecho(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
+	cbreak(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
+	keypad(stdscr, true); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
+	timeout(1); //入力を何ミリ秒待つか指定，負の値の場合，無限に待つ defined by curses.h
 }
 
 static void	execute_tetris(t_vars *vars) {
-	print_current_board(vars);
-	printf_afew(vars);
-	while (vars->game_on)
+	while (1)
 	{
-		int	key_input;
-		if (kbhit())
-			key_input = getch();
-		if (key_input != ERR)
-			move_cell(key_input, vars);
-		// if (is_fall(vars))
-		// 	move_down(vars);
+		print_current_board(vars);
+		printw("abc");
 		sleep(1);
 	}
+
+	// sleep(1);
+	// while (vars->game_on)
+	// {
+	// 	int	key_input = getch();
+	// 	if (key_input != ERR)
+	// 		move_cell(key_input, vars);
+	// 	// if (is_fall())
+	// 	// 	move_down_cell();
+	// }
 }
 
 static void	terminate_tetris(t_vars *vars) {
 	// free_shape(vars->current_cell); //Check：これが必要かはまだ不明
-	// endwin(); //端末の制御を終了する defined by curses.h
+	endwin(); //端末の制御を終了する defined by curses.h
 	// print_result(vars);
 }
 
@@ -50,7 +50,7 @@ int	main(void) {
 	t_vars	vars;
 
 	init_vars(&vars);
-	print_cell(&vars);
+	// print_cell(&vars);
 	setup_tetris();
 	execute_tetris(&vars);
 	terminate_tetris(&vars);

@@ -30,20 +30,17 @@ void	move_cell(int input, t_vars *vars)
 {
 	switch (input)
 	{
-		case KEY_DOWN: // 後でマクロし直す
+		case 'B': // 後でマクロし直す
 			move_down_cell(vars);
-			printf("%d\n", 123);
 			break ;
-		case KEY_RIGHT:
+		case 'C':
 			move_cell_to(RIGHT, vars);
-			printf("%d\n", 123);
 			break ;
-		case KEY_LEFT:
+		case 'D':
 			move_cell_to(LEFT, vars);
-			printf("%d\n", 123);
 			break ;
-		// case KEY_UP:
-		// 	rotate_cell(vars);
+		// case 'A':
+			// rotate_cell(vars);
 	}
 	print_current_board(vars);
 }

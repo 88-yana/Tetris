@@ -2,6 +2,7 @@
 # define BOARD_H
 
 # include <stdio.h>
+# include <ncurses.h>
 # include "define.h"
 
 # define clear_screen printf("\033[2J")
