@@ -1,6 +1,6 @@
 #include "../../includes/board.h"
 
-void	copy_cell_to_board(int board[][WIDTH], t_tetromino cell) {
+void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH]) {
 	for (int i = 0; i < cell.width; i++)
 		for (int j = 0; j < cell.width; j++)
 			if (cell.shape[i][j])
@@ -40,7 +40,7 @@ void	print_current_board(t_vars *vars)
 {
 	int	sub_board[HEIGHT][WIDTH] = {0};
 
-	copy_cell_to_board(sub_board, vars->current_cell);
+	copy_cell_to_board(vars->current_cell, sub_board);
 	clear_screen;
 	write_board(vars, sub_board);
 }

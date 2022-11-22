@@ -22,7 +22,7 @@ void	printf_afew(t_vars *vars)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		init_vars(vars);
+		vars->current_cell = make_new_cell();
 		print_current_board(vars);
 		sleep(2);
 	}
