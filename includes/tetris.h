@@ -5,4 +5,6 @@
 # include	<unistd.h>
 # include	<ncurses.h>
 # include	"define.h"
+# include	"cell.h"
+# include	"debug.h"
 #endif

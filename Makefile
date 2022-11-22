@@ -1,5 +1,6 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -lncurses
+# CFLAGS = -Wall -Wextra -Werror -lncurses
 SRCSDIR = srcs
 OBJSDIR = objs
 SRCS = $(shell find $(SRCSDIR) -type f -name *.c)
