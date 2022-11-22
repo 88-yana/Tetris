@@ -12,17 +12,19 @@ void	print_shape(t_tetromino cell)
 
 void	print_cell(t_vars *vars)
 {
-	print_shape(vars->current_cell);
-	printf("%d\n", vars->current_cell.width);
-	printf("%d\n", vars->current_cell.col);
-	printf("%d\n", vars->current_cell.row);
+	print_shape(vars->cell);
+	printf("%d\n", vars->cell.width);
+	printf("%d\n", vars->cell.col);
+	printf("%d\n", vars->cell.row);
 }
 
 void	printf_afew(t_vars *vars)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		vars->current_cell = make_new_cell();
+		initscr(); 
+		vars->cell = make_new_cell();
+		endwin();
 		print_current_board(vars);
 		sleep(2);
 	}

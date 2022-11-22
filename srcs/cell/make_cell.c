@@ -2,10 +2,21 @@
 
 
 
-// t_tetromino	copy_cell(t_tetromino cell)
-// {
+t_tetromino	copy_cell(t_tetromino cell)
+{
+	t_tetromino	new_cell;
 
-// }
+	// new_cell.shape = malloc(cell.width * sizeof(int *));
+	for (int i = 0; i < cell.width; i++) {
+		// new_cell.shape[i] = malloc(cell.width * sizeof(int));
+		for (int j = 0; j < cell.width; j++)
+			new_cell.shape[i][j] = cell.shape[i][j];
+	}
+	new_cell.width = cell.width;
+	new_cell.col = cell.col;
+	new_cell.row = cell.row;
+	return (new_cell);
+}
 
 t_tetromino	make_new_cell(void)
 {
