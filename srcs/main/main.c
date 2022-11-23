@@ -9,7 +9,7 @@ static void	init_vars(t_vars *vars)
 			vars->board[i][j] = 0;
 	vars->score = 0;
 	vars->reduce_time = 5000; //static 変数にしてもいいかも
-	vars->fall_time = 400000;
+	vars->fall_time = 1000000000;
 	vars->game_on = true;
 	vars->cell = make_new_cell();
 	clock_gettime(CLOCK_MONOTONIC, &(vars->start_time));
@@ -30,8 +30,8 @@ static void	execute_tetris(t_vars *vars) {
 		int	key_input = getch();
 		if (key_input != ERR)
 			move_cell(key_input, vars);
-		// if (is_fall(vars))
-		// 	move_down(vars);
+		if (is_fall(vars))
+			move_down_cell(vars);
 	}
 	sleep(3);
 }

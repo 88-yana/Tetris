@@ -21,8 +21,8 @@ typedef struct s_vars {
 	int				board[HEIGHT][WIDTH];
 	int				score;
 	int				reduce_time;
-	int				fall_time;
 	bool			game_on;
+	time_t			fall_time;
 	t_tetromino		cell;
 	struct timespec	start_time;
 }	t_vars;

@@ -8,5 +8,6 @@
 # include	"cell.h"
 # include	"board.h"
 # include	"debug.h"
+# include	"bool.h"
 
 #endif

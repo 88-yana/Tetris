@@ -2,7 +2,7 @@
 # define BOARD_H
 
 # include <stdio.h>
-# include	<ncurses.h>
+# include <ncurses.h>
 # include "define.h"
 
 void	print_current_board(t_vars *vars);

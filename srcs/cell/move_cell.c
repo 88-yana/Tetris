@@ -7,7 +7,7 @@ static void	move_cell_to(int direction, t_vars *vars) {
 		vars->cell.col -= direction;
 }
 
-static void	move_down_cell(t_vars *vars) {
+void	move_down_cell(t_vars *vars) {
 
 	vars->cell.row++;
 	if (is_placeable(vars, vars->cell) == false)
