@@ -9,31 +9,31 @@ void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH]) {
 
 static void	write_board(t_vars *vars, int sub_board[][WIDTH]) {
 	for (int i = 0; i < WIDTH - 4; i++)
-		printf(" ");
-	printf("Tetris\n");
+		printw(" ");
+	printw("Tetris\n");
 	for (int i = 0; i < HEIGHT; i++) {
 		for (int j = 0; j < WIDTH; j++)
 		{
 			if (vars->board[i][j] + sub_board[i][j] == 1)
-				printf("%c ", '?');
+				printw("%c ", '?');
 			else if (vars->board[i][j] + sub_board[i][j] == 2)
-				printf("%c ", '$');
+				printw("%c ", '$');
 			else if (vars->board[i][j] + sub_board[i][j] == 3)
-				printf("%c ", '#');
+				printw("%c ", '#');
 			else if (vars->board[i][j] + sub_board[i][j] == 4)
-				printf("%c ", '!');
+				printw("%c ", '!');
 			else if (vars->board[i][j] + sub_board[i][j] == 5)
-				printf("%c ", '@');
+				printw("%c ", '@');
 			else if (vars->board[i][j] + sub_board[i][j] == 6)
-				printf("%c ", '^');
+				printw("%c ", '^');
 			else if (vars->board[i][j] + sub_board[i][j] == 7)
-				printf("%c ", '*');
+				printw("%c ", '*');
 			else
-				printf("%c ", '.');
+				printw("%c ", '.');
 		}
-		printf("\n");
+		printw("\n");
 	}
-	printf("\nScore: %d\n", vars->score);
+	printw("\nScore: %d\n", vars->score);
 }
 
 void	print_current_board(t_vars *vars)

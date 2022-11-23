@@ -32,15 +32,12 @@ void	move_cell(int input, t_vars *vars)
 	{
 		case KEY_DOWN: // 後でマクロし直す
 			move_down_cell(vars);
-			printf("%d\n", 123);
 			break ;
 		case KEY_RIGHT:
 			move_cell_to(RIGHT, vars);
-			printf("%d\n", 123);
 			break ;
 		case KEY_LEFT:
 			move_cell_to(LEFT, vars);
-			printf("%d\n", 123);
 			break ;
 		// case KEY_UP:
 		// 	rotate_cell(vars);

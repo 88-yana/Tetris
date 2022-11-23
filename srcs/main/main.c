@@ -25,14 +25,15 @@ static void	setup_tetris(void) {
 
 static void	execute_tetris(t_vars *vars) {
 	print_current_board(vars);
-	// while (vars->game_on)
-	// {
-	// 	int	key_input = getch();
-	// 	if (key_input != ERR)
-	// 		move_cell(key_input, vars);
-	// 	// if (is_fall(vars))
-	// 	// 	move_down(vars);
-	// }
+	while (vars->game_on)
+	{
+		int	key_input = getch();
+		if (key_input != ERR)
+			move_cell(key_input, vars);
+		// if (is_fall(vars))
+		// 	move_down(vars);
+	}
+	sleep(3);
 }
 
 static void	terminate_tetris(t_vars *vars) {
@@ -45,8 +46,8 @@ int	main(void) {
 	t_vars	vars;
 
 	init_vars(&vars);
-	print_cell(&vars);
 	setup_tetris();
+	print_cell(&vars);
 	execute_tetris(&vars);
 	terminate_tetris(&vars);
 	return (0);
