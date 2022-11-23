@@ -10,13 +10,13 @@ NAME = Tetris
 all: $(OBJSDIR) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC)  $(OBJS) $(CFLAGS) -o $(NAME)
 
 $(OBJSDIR):
 	mkdir $(shell find $(SRCSDIR) -type d | sed 's/^$(SRCSDIR)/$(OBJSDIR)/g')
 
 $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) -o $@ -c $<
 
 clean:
 	$(RM) -rf $(OBJSDIR)

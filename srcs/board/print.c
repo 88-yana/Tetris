@@ -7,8 +7,6 @@ void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH]) {
 				board[cell.row + i][cell.col + j] = cell.shape[i][j];
 }
 
-#define location(y,x)	printf("\033[%d;%dH" ,y,x)
-
 static void	write_board(t_vars *vars, int sub_board[][WIDTH]) {
 	for (int i = 0; i < WIDTH - 4; i++)
 		printf(" ");
@@ -34,13 +32,8 @@ static void	write_board(t_vars *vars, int sub_board[][WIDTH]) {
 				printf("%c ", '.');
 		}
 		printf("\n");
-		fflush(stdout);
-		location(i + 1, 0);
 	}
 	printf("\nScore: %d\n", vars->score);
-	fflush(stdout);
-	location(HEIGHT + 2, 0);
-	// clear_screen;
 }
 
 void	print_current_board(t_vars *vars)
@@ -48,7 +41,6 @@ void	print_current_board(t_vars *vars)
 	int	sub_board[HEIGHT][WIDTH] = {0};
 
 	copy_cell_to_board(vars->cell, sub_board);
-	clear_screen;
-	location(0, 0);
+	clear();
 	write_board(vars, sub_board);
 }
