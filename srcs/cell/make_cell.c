@@ -26,8 +26,6 @@ t_tetromino	make_new_cell(void)
 	return (new_cell);
 }
 
-// make_rotated_cell
-
 void	make_rotated_cell(t_tetromino *cell) {
 	t_tetromino	temp;
 

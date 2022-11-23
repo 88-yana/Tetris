@@ -3,17 +3,17 @@
 static void	move_cell_to(int direction, t_vars *vars) {
 
 	vars->cell.col += direction;
-	if (is_placeable(vars, vars->cell) == false)
+	if (!is_placeable(vars, vars->cell))
 		vars->cell.col -= direction;
 }
 
 void	move_down_cell(t_vars *vars) {
 
 	vars->cell.row++;
-	if (is_placeable(vars, vars->cell) == false)
+	if (!is_placeable(vars, vars->cell))
 	{
 		vars->cell.row--;
-		// update_board(vars);
+		update_board(vars);
 	}
 }
 
@@ -30,7 +30,7 @@ void	move_cell(int input, t_vars *vars)
 {
 	switch (input)
 	{
-		case KEY_DOWN: // 後でマクロし直す
+		case KEY_DOWN:
 			move_down_cell(vars);
 			break ;
 		case KEY_RIGHT:
