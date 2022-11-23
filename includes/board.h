@@ -6,6 +6,6 @@
 # include "define.h"
 
 void	print_current_board(t_vars *vars);
-bool	is_placeable(t_vars *vars);
+bool	is_placeable(t_vars *vars, t_tetromino temp);
 
 #endif
