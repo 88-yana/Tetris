@@ -1,20 +1,5 @@
 #include "../../includes/cell.h"
 
-
-
-// t_tetromino	copy_cell(t_tetromino cell)
-// {
-// 	t_tetromino	new_cell;
-
-// 	for (int i = 0; i < cell.width; i++)
-// 		for (int j = 0; j < cell.width; j++)
-// 			new_cell.shape[i][j] = cell.shape[i][j];
-// 	new_cell.width = cell.width;
-// 	new_cell.col = cell.col;
-// 	new_cell.row = cell.row;
-// 	return (new_cell);
-// }
-
 t_tetromino	make_new_cell(void)
 {
 	t_tetromino	new_cell;
@@ -26,11 +11,13 @@ t_tetromino	make_new_cell(void)
 	return (new_cell);
 }
 
-void	make_rotated_cell(t_tetromino *cell) {
-	t_tetromino	temp;
+t_tetromino	make_rotated_cell(t_tetromino cell)
+{
+	t_tetromino	new_cell;
 
-	temp = *cell;
-	for (int i = 0; i < cell->width; i++)
-		for (int j = 0, k = cell->width - 1; j < cell->width; j++, k--)
-			cell->shape[i][j] = temp.shape[k][i];
+	new_cell = cell;
+	for (int i = 0; i < cell.width; i++)
+		for (int j = 0, k = cell.width - 1; j < cell.width; j++, k--)
+			new_cell.shape[i][j] = cell.shape[k][i];
+	return (new_cell);
 }

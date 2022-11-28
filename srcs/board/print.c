@@ -1,13 +1,15 @@
 #include "../../includes/board.h"
 
-void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH]) {
+void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH])
+{
 	for (int i = 0; i < cell.width; i++)
 		for (int j = 0; j < cell.width; j++)
 			if (cell.shape[i][j])
 				board[cell.row + i][cell.col + j] = cell.shape[i][j];
 }
 
-static void	write_board(t_vars *vars, int sub_board[][WIDTH]) {
+static void	write_board(t_vars *vars, int sub_board[][WIDTH])
+{
 	for (int i = 0; i < WIDTH - 4; i++)
 		printw(" ");
 	printw("Tetris\n");
@@ -43,4 +45,18 @@ void	print_current_board(t_vars *vars)
 	copy_cell_to_board(vars->cell, sub_board);
 	clear();
 	write_board(vars, sub_board);
+}
+
+void	print_result(t_vars *vars)
+{
+	for (int i = 0; i < WIDTH - 4; i++)
+		printf(" ");
+	printf("Result\n");
+	for (int i = 0; i < HEIGHT; i++) {
+		for (int j = 0; j < WIDTH; j++)
+			printf("%c ", vars->board[i][j] ? '#' : '.');
+		printf("\n");
+	}
+	printf("Game over.\n");
+	printf("Score: %d\n", vars->score);
 }

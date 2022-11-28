@@ -20,10 +20,9 @@ typedef struct s_tetromino {
 typedef struct s_vars {
 	int				board[HEIGHT][WIDTH];
 	int				score;
-	int				reduce_time;
 	bool			game_on;
-	time_t			fall_time;
 	t_tetromino		cell;
+	time_t			fall_time;
 	struct timespec	start_time;
 }	t_vars;
 
