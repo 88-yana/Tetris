@@ -11,7 +11,8 @@ static void	calc_time(t_vars *vars, int deleted_rows)
 
 	for (int i = 0; i < deleted_rows; i++)
 		vars->fall_time -= decrease_time;
-	decrease_time += 5000000 * deleted_rows;
+	if (decrease_time < 30000000)
+		decrease_time += 5000000 * deleted_rows;
 }
 
 static void	move_down_rows(t_vars *vars, int del_row)
