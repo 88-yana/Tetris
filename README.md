@@ -1,8 +1,9 @@
 # Tetris
 
 ## 実行
-$ make
+`
+$ make  
 $ ./Tetris
-
+`
 ## <ncurses.h> がない場合
-$ sudo apt-get install libncursesw5-dev
+`$ sudo apt-get install libncursesw5-dev`
