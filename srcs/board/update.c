@@ -1,11 +1,11 @@
 #include "../../includes/board.h"
 
-void	calc_score(t_vars *vars, int deleted_rows)
+static void	calc_score(t_vars *vars, int deleted_rows)
 {
 	vars->score += 100 * deleted_rows;
 }
 
-void	calc_time(t_vars *vars, int deleted_rows)
+static void	calc_time(t_vars *vars, int deleted_rows)
 {
 	static time_t	decrease_time = 10000000;
 
@@ -14,7 +14,7 @@ void	calc_time(t_vars *vars, int deleted_rows)
 	decrease_time += 5000000 * deleted_rows;
 }
 
-void	move_down_rows(t_vars *vars, int del_row)
+static void	move_down_rows(t_vars *vars, int del_row)
 {
 	for (int row = del_row; row >= 1; row--) //下から上へ
 		for (int col = 0; col < WIDTH; col++)
@@ -23,7 +23,7 @@ void	move_down_rows(t_vars *vars, int del_row)
 		vars->board[0][col] = 0; //一番上は0初期化
 }
 
-int	delete_rows(t_vars *vars)
+static int	delete_rows(t_vars *vars)
 {
 	int	deleted_rows = 0;
 	for (int row = 0; row < HEIGHT; row++)

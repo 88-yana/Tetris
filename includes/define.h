@@ -8,6 +8,7 @@
 # define WIDTH 15
 # define RIGHT 1
 # define LEFT -1
+# define COLOR_GRAY 8
 # define TYPES sizeof(pieces) / sizeof(t_tetromino)
 
 typedef struct s_tetromino {

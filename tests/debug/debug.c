@@ -26,6 +26,5 @@ void	printw_afew(t_vars *vars)
 		vars->cell = make_new_cell();
 		endwin();
 		print_current_board(vars);
-		sleep(2);
 	}
 }

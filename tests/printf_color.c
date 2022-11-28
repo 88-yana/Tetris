@@ -19,7 +19,6 @@
 // 		location(10,20);//カーソル位置をheight 10 width 20に移動
 // 		printf("%d",i);
 // 		fflush(stdout);//バッファをフラッシュ
-// 		sleep(1);
 // 	}
 // 	return (0);
 // }
@@ -43,7 +42,6 @@ int	main(void){
 		printf("%d\n", i);
 		print_map();
 		fflush(stdout);//バッファをフラッシュ
-		sleep(1);
 	}
 	clr;
 	location(0,0);
