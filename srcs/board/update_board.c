@@ -1,13 +1,17 @@
 #include "../../includes/board.h"
 
-void	calc_score_and_time(t_vars *vars, int cnt_rows)
+void	calc_score(t_vars *vars, int deleted_rows)
 {
-	static time_t	decrease_time = 100000000;
+	vars->score += 100 * deleted_rows;
+}
 
-	vars->score += 100 * cnt_rows;
-	for (int i = 0; i < cnt_rows; i++)
+void	calc_time(t_vars *vars, int deleted_rows)
+{
+	static time_t	decrease_time = 10000000;
+
+	for (int i = 0; i < deleted_rows; i++)
 		vars->fall_time -= decrease_time;
-	decrease_time += 50000000 * cnt_rows;
+	decrease_time += 5000000 * deleted_rows;
 }
 
 int	delete_rows(t_vars *vars)
@@ -16,15 +20,15 @@ int	delete_rows(t_vars *vars)
 	int	sum_col;
 
 	cnt_rows = 0;
-	for (int n = 0; n < HEIGHT; n++)
+	for (int i = 0; i < HEIGHT; i++)
 	{
 		sum_col = 0;
-		for (int m = 0; m < WIDTH; m++)
-			if (vars->board[n][m])
+		for (int j = 0; j < WIDTH; j++)
+			if (vars->board[i][j])
 				sum_col++;
 		if (sum_col == WIDTH)
 		{
-			// move_down_rows(n);
+			// move_down_rows(i);
 			cnt_rows++;
 		}
 	}
@@ -35,7 +39,9 @@ void	update_board(t_vars *vars)
 {
 	int	deleted_rows;
 
-	copy_cell_to_board();
-	calc_score(vars, delete_rows(vars));
+	copy_cell_to_board(vars->cell, vars->board);
+	deleted_rows = delete_rows(vars);
+	calc_score(vars, deleted_rows);
+	calc_time(vars, deleted_rows);
 	vars->cell = make_new_cell();
 }
