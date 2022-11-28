@@ -2,7 +2,8 @@
 
 ## 実行
 `
-$ make  
+$ make
+
 $ ./Tetris
 `
 ## <ncurses.h> がない場合
