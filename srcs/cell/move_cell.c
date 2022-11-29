@@ -26,7 +26,7 @@ static void	rotate_cell(t_vars *vars)
 		vars->cell = temp;
 }
 
-void	move_cell(int input, t_vars *vars)
+void	move_cell(const int input, t_vars *vars)
 {
 	switch (input)
 	{

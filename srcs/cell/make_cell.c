@@ -11,7 +11,7 @@ t_tetromino	make_new_cell(void)
 	return (new_cell);
 }
 
-t_tetromino	make_rotated_cell(t_tetromino cell)
+t_tetromino	make_rotated_cell(const t_tetromino cell)
 {
 	t_tetromino	new_cell;
 

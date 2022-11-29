@@ -9,6 +9,8 @@
 # define RIGHT 1
 # define LEFT -1
 # define COLOR_GRAY 8
+# define FALL_TIME 500000000 //ns
+# define DECREASE_TIME 10000000 //ns
 # define TYPES sizeof(pieces) / sizeof(t_tetromino)
 
 typedef struct s_tetromino {

@@ -17,7 +17,7 @@ bool	is_fall(t_vars *vars)
 	return (false);
 }
 
-bool	is_placeable(t_vars *vars, t_tetromino temp)
+bool	is_placeable(const t_vars *vars, const t_tetromino temp)
 {
 	for (int i = 0; i < temp.width; i++)
 	{

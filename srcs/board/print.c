@@ -1,6 +1,6 @@
 #include "../../includes/board.h"
 
-void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH])
+void	copy_cell_to_board(const t_tetromino cell, int board[][WIDTH])
 {
 	for (int i = 0; i < cell.width; i++)
 		for (int j = 0; j < cell.width; j++)
@@ -8,14 +8,14 @@ void	copy_cell_to_board(t_tetromino cell, int board[][WIDTH])
 				board[cell.row + i][cell.col + j] = cell.shape[i][j];
 }
 
-static void	write_block(int type)
+static void	write_block(const int type)
 {
 	attron(COLOR_PAIR(type));
 	printw("%c ", ' ');
 	attrset(0);
 }
 
-static void	write_board(t_vars *vars, int sub_board[][WIDTH])
+static void	write_board(const t_vars *vars, const int sub_board[][WIDTH])
 {
 	for (int i = 0; i < WIDTH - 1; i++)
 		printw(" ");
@@ -42,7 +42,7 @@ void	print_current_board(t_vars *vars)
 	write_board(vars, sub_board);
 }
 
-void	print_result(t_vars *vars)
+void	print_result(const t_vars *vars)
 {
 	printf("Game over.\n");
 	printf("Score: %d\n", vars->score);

@@ -1,21 +1,21 @@
 #include "../../includes/board.h"
 
-static void	calc_score(t_vars *vars, int deleted_rows)
+static void	calc_score(t_vars *vars, const int deleted_rows)
 {
 	vars->score += 100 * deleted_rows;
 }
 
-static void	calc_time(t_vars *vars, int deleted_rows)
+static void	calc_time(t_vars *vars, const int deleted_rows)
 {
-	static time_t	decrease_time = 10000000;
+	static time_t	decrease_time = DECREASE_TIME;
 
 	for (int i = 0; i < deleted_rows; i++)
 		vars->fall_time -= decrease_time;
-	if (decrease_time < 30000000)
-		decrease_time += 5000000 * deleted_rows;
+	if (decrease_time < 3 * DECREASE_TIME)
+		decrease_time += deleted_rows * DECREASE_TIME / 2;
 }
 
-static void	move_down_rows(t_vars *vars, int del_row)
+static void	move_down_rows(t_vars *vars, const int del_row)
 {
 	for (int row = del_row; row >= 1; row--) //下から上へ
 		for (int col = 0; col < WIDTH; col++)
