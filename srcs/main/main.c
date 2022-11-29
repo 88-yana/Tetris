@@ -19,8 +19,8 @@ static void	setup_tetris(void)
 	cbreak(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
 	keypad(stdscr, true); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
 	timeout(1); //入力を何ミリ秒待つか指定，負の値の場合，無限に待つ defined by curses.h
-	start_color();
-	init_pair(0, COLOR_RED, COLOR_BLACK);
+	start_color(); //色を使えるようにする defined by curses.h
+	init_pair(0, COLOR_RED, COLOR_BLACK); //init_pair(色のペアの割り振り番号, 文字色, 背景色);
 	init_pair(1, COLOR_RED, COLOR_BLUE);
 	init_pair(2, COLOR_RED, COLOR_CYAN);
 	init_pair(3, COLOR_RED, COLOR_GREEN);

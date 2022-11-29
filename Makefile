@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -lncurses
-# CFLAGS = -Wall -Wextra -Werror -lncurses
+CFLAGS = -Wall -Werror -Wextra
+LFLAGS = -lncurses
 SRCSDIR = srcs
 OBJSDIR = objs
 SRCS = $(shell find $(SRCSDIR) -type f -name *.c)
@@ -10,13 +10,13 @@ NAME = Tetris
 all: $(OBJSDIR) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC)  $(OBJS) $(CFLAGS) -o $(NAME)
+	$(CC)  $(OBJS) $(LFLAGS) -o $(NAME)
 
 $(OBJSDIR):
 	mkdir $(shell find $(SRCSDIR) -type d | sed 's/^$(SRCSDIR)/$(OBJSDIR)/g')
 
 $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
-	$(CC) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	$(RM) -rf $(OBJSDIR)
