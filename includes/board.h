@@ -4,9 +4,12 @@
 # include <stdio.h>
 # include <ncurses.h>
 # include "define.h"
+# include "cell.h"
+# include "bool.h"
 
-# define clear_screen printf("\033[2J")
-
+void	copy_cell_to_board(const t_tetromino cell, int board[][WIDTH]);
 void	print_current_board(t_vars *vars);
-bool	is_placeable(t_vars *vars);
+void	print_result(const t_vars *vars);
+void	update_board(t_vars *vars);
+
 #endif
