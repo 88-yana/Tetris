@@ -1,7 +1,6 @@
 #ifndef BOARD_H
 # define BOARD_H
 
-# include <stdio.h>
 # include <ncurses.h>
 # include "define.h"
 # include "cell.h"

@@ -2,7 +2,6 @@
 # define CELL_H
 
 # include <stdlib.h>
-# include <ncurses.h>
 # include "define.h"
 # include "board.h"
 
