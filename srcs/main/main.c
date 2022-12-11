@@ -8,6 +8,8 @@ static void	init_vars(t_vars *vars)
 	vars->score = 0;
 	vars->game_on = true;
 	vars->cell = make_new_cell();
+	for (int i = 0; i < NUM_OF_NEXT; i++)
+		vars->next[i] = make_new_cell();
 	vars->fall_time = FALL_TIME;
 }
 

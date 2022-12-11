@@ -8,13 +8,15 @@
 # define WIDTH 15
 # define RIGHT 1
 # define LEFT -1
+# define CELL_SIZE 4
+# define NUM_OF_NEXT 3
 # define COLOR_GRAY 8
 # define FALL_TIME 500000000 //ns
 # define DECREASE_TIME 10000000 //ns
 # define TYPES sizeof(pieces) / sizeof(t_tetromino)
 
 typedef struct s_tetromino {
-	int	shape[4][4];
+	int	shape[CELL_SIZE][CELL_SIZE];
 	int	width;
 	int	col;
 	int	row;
@@ -25,6 +27,7 @@ typedef struct s_vars {
 	int				score;
 	bool			game_on;
 	t_tetromino		cell;
+	t_tetromino		next[NUM_OF_NEXT];
 	time_t			fall_time;
 }	t_vars;
 
