@@ -50,7 +50,9 @@ void	update_board(t_vars *vars)
 	calc_score(vars, deleted_rows);
 	calc_time(vars, deleted_rows);
 
-	vars->cell = make_new_cell();
+	vars->cell = vars->next[vars->order_of_next];
+	vars->next[vars->order_of_next] = make_new_cell();
+	vars->order_of_next = (vars->order_of_next + 1) % 3;
 	if (!is_placeable(vars, vars->cell))
 		vars->game_on = false;
 }
