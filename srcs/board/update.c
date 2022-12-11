@@ -42,6 +42,13 @@ static int	delete_rows(t_vars *vars)
 	return (deleted_rows);
 }
 
+static void	set_next_cell(t_vars *vars)
+{
+	vars->cell = vars->next[vars->order_of_next];
+	vars->next[vars->order_of_next] = make_new_cell();
+	vars->order_of_next = (vars->order_of_next + 1) % NUM_OF_NEXT;
+}
+
 void	update_board(t_vars *vars)
 {
 	copy_cell_to_board(vars->cell, vars->board);
@@ -50,9 +57,7 @@ void	update_board(t_vars *vars)
 	calc_score(vars, deleted_rows);
 	calc_time(vars, deleted_rows);
 
-	vars->cell = vars->next[vars->order_of_next];
-	vars->next[vars->order_of_next] = make_new_cell();
-	vars->order_of_next = (vars->order_of_next + 1) % NUM_OF_NEXT;
+	set_next_cell(vars);
 	if (!is_placeable(vars, vars->cell))
 		vars->game_on = false;
 }
