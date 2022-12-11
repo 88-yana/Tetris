@@ -9,7 +9,7 @@
 # define RIGHT 1
 # define LEFT -1
 # define CELL_SIZE 4
-# define NUM_OF_NEXT 3
+# define NUM_OF_NEXT 4
 # define COLOR_GRAY 8
 # define FALL_TIME 500000000 //ns
 # define DECREASE_TIME 10000000 //ns

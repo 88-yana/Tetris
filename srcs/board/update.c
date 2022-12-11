@@ -52,7 +52,7 @@ void	update_board(t_vars *vars)
 
 	vars->cell = vars->next[vars->order_of_next];
 	vars->next[vars->order_of_next] = make_new_cell();
-	vars->order_of_next = (vars->order_of_next + 1) % 3;
+	vars->order_of_next = (vars->order_of_next + 1) % NUM_OF_NEXT;
 	if (!is_placeable(vars, vars->cell))
 		vars->game_on = false;
 }
