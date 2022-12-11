@@ -9,7 +9,6 @@ static void	init_vars(t_vars *vars)
 	vars->game_on = true;
 	vars->cell = make_new_cell();
 	vars->fall_time = FALL_TIME;
-	clock_gettime(CLOCK_MONOTONIC, &(vars->start_time));
 }
 
 static void	setup_tetris(void)
@@ -34,7 +33,6 @@ static void	setup_tetris(void)
 
 static void	execute_tetris(t_vars *vars)
 {
-	print_current_board(vars);
 	while (vars->game_on)
 	{
 		int	key_input = getch();

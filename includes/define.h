@@ -26,7 +26,6 @@ typedef struct s_vars {
 	bool			game_on;
 	t_tetromino		cell;
 	time_t			fall_time;
-	struct timespec	start_time;
 }	t_vars;
 
 static const	t_tetromino pieces[] = {
