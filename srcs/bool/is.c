@@ -15,17 +15,17 @@ bool	is_fall(t_vars *vars)
 	return (false);
 }
 
-bool	is_placeable(const t_vars *vars, const t_tetromino temp)
+bool	is_placeable(const t_vars *vars, const t_tetromino cell)
 {
-	for (int i = 0; i < temp.width; i++)
+	for (int i = 0; i < cell.width; i++)
 	{
-		for (int j = 0; j < temp.width; j++)
+		for (int j = 0; j < cell.width; j++)
 		{
-			const bool	is_out_of_bounds = temp.col + j < 0 || WIDTH <= temp.col + j || HEIGHT <= temp.row + i;
-			if (is_out_of_bounds && temp.shape[i][j])
+			const bool	is_out_of_bounds = cell.col + j < 0 || WIDTH <= cell.col + j || HEIGHT <= cell.row + i;
+			if (is_out_of_bounds && cell.shape[i][j])
 				return (false);
-			const bool	is_placed_on_board = vars->board[temp.row + i][temp.col + j];
-			if (is_placed_on_board && temp.shape[i][j])
+			const bool	is_placed_on_board = vars->board[cell.row + i][cell.col + j];
+			if (is_placed_on_board && cell.shape[i][j])
 				return (false);
 		}
 	}
