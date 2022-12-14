@@ -29,6 +29,9 @@ static void	write_board(const t_vars *vars, const int sub_board[][WIDTH])
 	for (int i = 0; i < WIDTH - 1; i++)
 		printw(" ");
 	printw("Tetris\n");
+	for (int i = 0; i < 2 * WIDTH + 8; i++)
+		printw(" ");
+	printw("Next\n");
 	for (int i = 0; i < HEIGHT; i++)
 	{
 		write_block(COLOR_GRAY);
