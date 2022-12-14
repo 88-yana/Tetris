@@ -6,7 +6,7 @@ static void	init_vars(t_vars *vars)
 		for (int j = 0; j < WIDTH; j++)
 			vars->board[i][j] = 0;
 	vars->score = 0;
-	vars->order_of_next = 0;
+	vars->index_of_next = 0;
 	vars->game_on = true;
 	vars->cell = make_new_cell();
 	for (int i = 0; i < NUM_OF_NEXT; i++)

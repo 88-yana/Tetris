@@ -25,7 +25,7 @@ typedef struct s_tetromino {
 typedef struct s_vars {
 	int				board[HEIGHT][WIDTH];
 	int				score;
-	int				order_of_next;
+	int				index_of_next;
 	bool			game_on;
 	t_tetromino		cell;
 	t_tetromino		next[NUM_OF_NEXT];
