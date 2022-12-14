@@ -36,7 +36,7 @@ static void	write_board(const t_vars *vars, const int sub_board[][WIDTH])
 			write_block(vars->board[i][j] + sub_board[i][j]);
 		write_block(COLOR_GRAY);
 		if (i < CELL_SIZE * NUM_OF_NEXT)
-			write_line_of_next(vars->next[(vars->order_of_next + i / 4) % NUM_OF_NEXT], i % 4);
+			write_line_of_next(vars->next[(vars->index_of_next + i / 4) % NUM_OF_NEXT], i % 4);
 		if (i == CELL_SIZE * NUM_OF_NEXT)
 			for (int j = 0; j < CELL_SIZE + 3; j++)
 				write_block(COLOR_GRAY);
