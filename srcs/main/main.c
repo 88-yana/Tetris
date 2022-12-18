@@ -17,9 +17,9 @@ static void	init_vars(t_vars *vars)
 static void	setup_tetris(void)
 {
 	srand(time(NULL)); //現在時刻を元に，擬似乱数を生成. rand()初期値が変わる
-	initscr(); //curses を利用する場合，最初に呼び出さなければならない
+	initscr(); //curses.h の関数を利用する場合，最初に呼び出さなければならない
 	noecho(); // 端末にキーを表示しない defined by curses.h
-	cbreak(); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
+	cbreak(); // 入力バッファを使用しないモードに変更(キー入力の末尾にエンターが必要ない) defined by curses.h
 	keypad(stdscr, true); // 矢印などの特殊キーをgetch関数で受け取れるようにする defined by curses.h
 	timeout(1); //入力を何ミリ秒待つか指定，負の値の場合，無限に待つ defined by curses.h
 	start_color(); //色を使えるようにする defined by curses.h
