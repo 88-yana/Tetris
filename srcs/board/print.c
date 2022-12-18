@@ -24,7 +24,7 @@ static void	write_line_of_next(const t_tetromino cell, int row)
 	write_block(COLOR_GRAY);
 }
 
-static void	write_board(const t_vars *vars, const int sub_board[][WIDTH])
+static void	write_header(void)
 {
 	for (int i = 0; i < WIDTH - 1; i++)
 		printw(" ");
@@ -32,17 +32,29 @@ static void	write_board(const t_vars *vars, const int sub_board[][WIDTH])
 	for (int i = 0; i < 2 * WIDTH + 8; i++)
 		printw(" ");
 	printw("Next\n");
+}
+
+static void	write_next(t_vars *vars, int i)
+{
+	if (i < CELL_SIZE * NUM_OF_NEXT)
+			write_line_of_next(vars->next[(vars->index_of_next + i / 4) % NUM_OF_NEXT], i % 4);
+	if (i == CELL_SIZE * NUM_OF_NEXT)
+		for (int j = 0; j < CELL_SIZE + 3; j++)
+			write_block(COLOR_GRAY);
+}
+
+static void	write_board(t_vars *vars, const int sub_board[][WIDTH])
+{
+	write_header();
 	for (int i = 0; i < HEIGHT; i++)
 	{
 		write_block(COLOR_GRAY);
 		for (int j = 0; j < WIDTH; j++)
 			write_block(vars->board[i][j] + sub_board[i][j]);
 		write_block(COLOR_GRAY);
-		if (i < CELL_SIZE * NUM_OF_NEXT)
-			write_line_of_next(vars->next[(vars->index_of_next + i / 4) % NUM_OF_NEXT], i % 4);
-		if (i == CELL_SIZE * NUM_OF_NEXT)
-			for (int j = 0; j < CELL_SIZE + 3; j++)
-				write_block(COLOR_GRAY);
+
+		write_next(vars, i);
+
 		printw("\n");
 	}
 	for (int j = 0; j < WIDTH + 2; j++)
