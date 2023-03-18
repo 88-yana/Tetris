@@ -1,4 +1,4 @@
-#include "../../includes/tetris.h"
+#include "tetris.h"
 
 static void	init_vars(t_vars *vars)
 {

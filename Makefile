@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra  -I ./includes/
 LFLAGS = -lncurses
 SRCSDIR = srcs
 OBJSDIR = objs

@@ -1,4 +1,4 @@
-#include "../../includes/board.h"
+#include "board.h"
 
 static void	calc_score(t_vars *vars, const int deleted_rows)
 {

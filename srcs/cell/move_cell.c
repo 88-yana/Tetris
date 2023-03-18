@@ -1,4 +1,4 @@
-#include "../../includes/cell.h"
+#include "cell.h"
 
 static void	move_cell_to(int direction, t_vars *vars)
 {

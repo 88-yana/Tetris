@@ -1,4 +1,4 @@
-#include "../../includes/board.h"
+#include "board.h"
 
 void	copy_cell_to_board(const t_tetromino cell, int board[][WIDTH])
 {

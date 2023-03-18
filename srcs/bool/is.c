@@ -1,4 +1,4 @@
-#include "../../includes/bool.h"
+#include "bool.h"
 
 bool	is_fall(t_vars *vars)
 {
@@ -15,7 +15,7 @@ bool	is_fall(t_vars *vars)
 	}
 	return (false);
 }
-
+//vars->board vars->cell
 bool	is_placeable(const t_vars *vars, const t_tetromino cell)
 {
 	for (int i = 0; i < cell.width; i++)

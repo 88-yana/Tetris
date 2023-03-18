@@ -1,4 +1,4 @@
-#include "../../includes/cell.h"
+#include "cell.h"
 
 t_tetromino	make_new_cell(void)
 {
