@@ -11,7 +11,7 @@ static void	calc_time(t_vars *vars, const int deleted_rows)
 
 	for (int i = 0; i < deleted_rows; i++)
 		vars->fall_time -= decrease_time;
-	if (decrease_time < 3 * DECREASE_TIME)
+	if (decrease_time < 2 * DECREASE_TIME)
 		decrease_time += deleted_rows * DECREASE_TIME / 2;
 }
 
