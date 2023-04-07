@@ -1,5 +1,9 @@
 # Tetris
 
+## 環境
+`Ubuntu-20.04`  
+`macOS`
+
 ## 実行
 `$ make`  
 `$ ./Tetris`
